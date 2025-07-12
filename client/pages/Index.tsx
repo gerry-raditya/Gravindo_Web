@@ -474,12 +474,10 @@ export default function Index() {
 
           {/* Products Grid */}
           <div className="flex-1">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {products.map((product) => (
-                <Card
-                  key={product.id}
-                  className="hover:shadow-lg transition-shadow cursor-pointer"
-                >
+                <Link key={product.id} to={`/product/${product.id}`}>
+                  <Card className="hover:shadow-lg transition-shadow cursor-pointer">
                   <CardContent className="p-3">
                     <div className="relative">
                       <img
