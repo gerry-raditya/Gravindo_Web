@@ -266,6 +266,10 @@ export default function ProductDetail() {
                     src={productImages[mainImage]}
                     alt="Product"
                     className="w-full h-96 object-cover rounded-lg"
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        "https://via.placeholder.com/600x600?text=Product+Image";
+                    }}
                   />
                   <Badge className="absolute top-4 left-4 bg-black text-white">
                     new
