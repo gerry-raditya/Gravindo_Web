@@ -29,10 +29,10 @@ export default function ProductDetail() {
   const [mainImage, setMainImage] = useState(0);
 
   const productImages = [
-    "https://cdn.builder.io/api/v1/image/assets/TEMP/92d64ab735a8c3be131de615deb005b26939222f?width=742",
-    "https://cdn.builder.io/api/v1/image/assets/TEMP/1edba6c371d5d187c76f771c5bdc547ff510d00b?width=216",
-    "https://cdn.builder.io/api/v1/image/assets/TEMP/b6c6e46da73a91946c4c5d263600eeac91bcce98?width=216",
-    "https://cdn.builder.io/api/v1/image/assets/TEMP/30ffa17daf09e61fd877ce0152e4552c2fe7ac91?width=216",
+    "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&h=600&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=200&h=200&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=200&h=200&fit=crop&crop=center",
+    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop&crop=center",
   ];
 
   const colorOptions = [
