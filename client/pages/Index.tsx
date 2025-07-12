@@ -474,75 +474,78 @@ export default function Index() {
 
           {/* Products Grid */}
           <div className="flex-1">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {products.map((product) => (
                 <Link key={product.id} to={`/product/${product.id}`}>
                   <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardContent className="p-3">
-                    <div className="relative">
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className="w-full aspect-square object-cover rounded mb-3"
-                      />
-                      {product.badge && (
-                        <Badge className="absolute top-2 left-2 bg-orange-500 text-white text-xs">
-                          {product.badge}
-                        </Badge>
-                      )}
-                      {product.discount && (
-                        <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs">
-                          {product.discount}
-                        </Badge>
-                      )}
-                    </div>
-
-                    <h3 className="text-sm line-clamp-3 mb-2 text-gray-800">
-                      {product.title}
-                    </h3>
-
-                    <div className="flex items-center space-x-2 mb-2">
-                      <span className="font-bold text-sm">{product.price}</span>
-                      {product.originalPrice && (
-                        <span className="text-xs text-gray-400 line-through">
-                          {product.originalPrice}
-                        </span>
-                      )}
-                    </div>
-
-                    {product.cod && (
-                      <Badge
-                        variant="outline"
-                        className="text-xs text-orange-600 border-orange-200 mb-2"
-                      >
-                        Bisa COD
-                      </Badge>
-                    )}
-
-                    {(product.rating || product.sold) && (
-                      <div className="flex items-center space-x-1 text-xs text-gray-600 mb-2">
-                        {product.rating && (
-                          <>
-                            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                            <span>{product.rating}</span>
-                            <span>•</span>
-                          </>
+                    <CardContent className="p-3">
+                      <div className="relative">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="w-full aspect-square object-cover rounded mb-3"
+                        />
+                        {product.badge && (
+                          <Badge className="absolute top-2 left-2 bg-orange-500 text-white text-xs">
+                            {product.badge}
+                          </Badge>
                         )}
-                        {product.sold && <span>{product.sold}</span>}
+                        {product.discount && (
+                          <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs">
+                            {product.discount}
+                          </Badge>
+                        )}
                       </div>
-                    )}
 
-                    <div className="flex items-start justify-between">
-                      <div className="text-xs text-gray-600 flex-1">
-                        <div className="font-medium">{product.store}</div>
-                        <div>{product.location}</div>
+                      <h3 className="text-sm line-clamp-3 mb-2 text-gray-800">
+                        {product.title}
+                      </h3>
+
+                      <div className="flex items-center space-x-2 mb-2">
+                        <span className="font-bold text-sm">
+                          {product.price}
+                        </span>
+                        {product.originalPrice && (
+                          <span className="text-xs text-gray-400 line-through">
+                            {product.originalPrice}
+                          </span>
+                        )}
                       </div>
-                      <button className="text-gray-400 hover:text-gray-600">
-                        <MoreHorizontal className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </CardContent>
-                </Card>
+
+                      {product.cod && (
+                        <Badge
+                          variant="outline"
+                          className="text-xs text-orange-600 border-orange-200 mb-2"
+                        >
+                          Bisa COD
+                        </Badge>
+                      )}
+
+                      {(product.rating || product.sold) && (
+                        <div className="flex items-center space-x-1 text-xs text-gray-600 mb-2">
+                          {product.rating && (
+                            <>
+                              <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                              <span>{product.rating}</span>
+                              <span>•</span>
+                            </>
+                          )}
+                          {product.sold && <span>{product.sold}</span>}
+                        </div>
+                      )}
+
+                      <div className="flex items-start justify-between">
+                        <div className="text-xs text-gray-600 flex-1">
+                          <div className="font-medium">{product.store}</div>
+                          <div>{product.location}</div>
+                        </div>
+                        <button className="text-gray-400 hover:text-gray-600">
+                          <MoreHorizontal className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
