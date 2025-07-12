@@ -56,6 +56,7 @@ export default function Index() {
       rating: "",
       store: "LANSANI STORE",
       location: "Jakarta Timur",
+      discount: "53%",
     },
     {
       id: 2,
@@ -124,6 +125,61 @@ export default function Index() {
       rating: "5.0",
       store: "Aman Alkesindo",
       location: "Cirebon",
+    },
+    {
+      id: 7,
+      image:
+        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/2e14a5ef-0aea-9948-8200-43b657100c42.jpg",
+      title: "Onemed Test tes hamil tes kehamilan akurat per box isi 50 strip",
+      price: "Rp60.000",
+      originalPrice: "",
+      cod: true,
+      sold: "750+ terjual",
+      rating: "4.9",
+      store: "Excelencia",
+      location: "Bandung",
+    },
+    {
+      id: 8,
+      image:
+        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/55c34f03-7325-1b42-a8d4-b1d8f176b57d.jpg",
+      title:
+        "Alat tes narkoba- 3 parameter / drug tes multi3 isi 25 tes orient gene - Answer",
+      price: "Rp585.000",
+      originalPrice: "",
+      cod: true,
+      sold: "60+ terjual",
+      rating: "5.0",
+      store: "drar medika",
+      location: "Jakarta Selatan",
+    },
+    {
+      id: 9,
+      image:
+        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/90695a10-4f81-e4c2-2679-ca7f060b2e19.jpg",
+      title:
+        "Alat Tes Kehamilan Sensitif Digital - Tes Kehamilan Pribadi - Akurat",
+      price: "Rp250.000",
+      originalPrice: "",
+      cod: false,
+      sold: "50+ terjual",
+      rating: "4.7",
+      store: "TokoMDRtokped",
+      location: "Jakarta Barat",
+    },
+    {
+      id: 10,
+      image:
+        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/65a796ae-1041-068c-9424-213ac4d1e62b.jpg",
+      title: "test pack sensitif tes kehamilan sensitif",
+      price: "Rp24.174",
+      originalPrice: "",
+      cod: false,
+      sold: "6rb+ terjual",
+      rating: "4.9",
+      store: "Anno Pharmacy_NEW",
+      location: "Jakarta Barat",
+      badge: "test pack",
     },
   ];
 
@@ -423,6 +479,11 @@ export default function Index() {
                       {product.badge && (
                         <Badge className="absolute top-2 left-2 bg-orange-500 text-white text-xs">
                           {product.badge}
+                        </Badge>
+                      )}
+                      {product.discount && (
+                        <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs">
+                          {product.discount}
                         </Badge>
                       )}
                     </div>
