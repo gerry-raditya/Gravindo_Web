@@ -18,6 +18,9 @@ import {
   Star,
   ChevronDown,
   ChevronUp,
+  Package,
+  Store,
+  MoreHorizontal,
 } from "lucide-react";
 
 export default function Index() {
@@ -127,7 +130,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b">
+      <header className="border-b sticky top-0 bg-white z-50">
         {/* Top Banner */}
         <div className="bg-gray-100 px-4 py-2">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -155,7 +158,26 @@ export default function Index() {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-4">
-              <div className="text-2xl font-bold text-green-600">tokopedia</div>
+              <svg
+                width="150"
+                height="33"
+                viewBox="0 0 150 34"
+                fill="none"
+                className="h-8"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M80.1848 22.8C78.5545 24.4614 76.6055 25.2972 74.3452 25.2972C72.5173 25.2972 70.9645 24.9228 69.3797 23.9969V20.1859C70.6542 21.0548 72.2555 21.8824 73.8362 21.8824C77.1321 21.8824 79.0945 19.6034 79.0945 16.3717C79.0945 13.1379 77.0648 10.7907 73.7669 10.7907C72.2948 10.7907 71.1011 11.3224 70.1679 12.389C69.1686 13.5445 68.6514 15.1966 68.6514 17.3793V32.4279H68.4031C67.9702 32.4268 67.5417 32.3405 67.1421 32.1738C66.7425 32.0071 66.3797 31.7634 66.0743 31.4564C65.7689 31.1495 65.527 30.7855 65.3623 30.3851C65.1976 29.9846 65.1134 29.5557 65.1145 29.1228V16.8155C65.1145 11.5924 68.2914 7.37586 73.7524 7.37586C76.4473 7.37586 78.6373 8.30172 80.2976 10.1638C81.8586 11.9028 82.6314 14.1062 82.6314 16.7586C82.6314 19.1172 81.8152 21.1355 80.1848 22.8Z"
+                  fill="#03AC0E"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M25.7204 22.77C23.971 24.4531 21.871 25.2972 19.4328 25.2972C17.0152 25.2972 14.9266 24.4521 13.1794 22.77C11.4259 21.0797 10.5518 18.929 10.5518 16.3366C10.5518 11.28 14.3939 7.37586 19.4328 7.37586C21.8504 7.37586 23.9452 8.22724 25.7028 9.92276C27.4677 11.6224 28.349 13.7669 28.349 16.3366C28.349 18.929 27.4739 21.0797 25.7215 22.77H25.7204Z"
+                  fill="#03AC0E"
+                />
+              </svg>
               <Separator orientation="vertical" className="h-6" />
               <span className="text-sm">Kategori</span>
             </div>
@@ -177,14 +199,18 @@ export default function Index() {
                 <MapPin className="w-4 h-4" />
                 <div>
                   <div className="text-xs text-gray-600">Dikirim ke</div>
-                  <div className="font-semibold">
+                  <div className="font-semibold text-xs">
                     Rumah Gerry Raditya Kusmana Yahya
                   </div>
                 </div>
                 <ChevronDown className="w-4 h-4" />
               </div>
               <ShoppingCart className="w-6 h-6" />
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-green-600 text-green-600 hover:bg-green-50"
+              >
                 Masuk
               </Button>
             </div>
@@ -198,11 +224,11 @@ export default function Index() {
         <div className="border-b mb-6">
           <div className="flex space-x-8">
             <button className="pb-2 border-b-2 border-green-600 text-green-600 font-medium flex items-center space-x-2">
-              <span>📦</span>
+              <Package className="w-5 h-5" />
               <span>Produk</span>
             </button>
             <button className="pb-2 text-gray-600 flex items-center space-x-2">
-              <span>🏪</span>
+              <Store className="w-5 h-5" />
               <span>Toko</span>
             </button>
           </div>
@@ -436,9 +462,14 @@ export default function Index() {
                       </div>
                     )}
 
-                    <div className="text-xs text-gray-600">
-                      <div className="font-medium">{product.store}</div>
-                      <div>{product.location}</div>
+                    <div className="flex items-start justify-between">
+                      <div className="text-xs text-gray-600 flex-1">
+                        <div className="font-medium">{product.store}</div>
+                        <div>{product.location}</div>
+                      </div>
+                      <button className="text-gray-400 hover:text-gray-600">
+                        <MoreHorizontal className="w-4 h-4" />
+                      </button>
                     </div>
                   </CardContent>
                 </Card>
