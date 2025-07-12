@@ -120,32 +120,32 @@ export default function ProductDetail() {
   const recentlyViewed = [
     {
       id: 1,
-      name: "Xomie Remid 8 Sport Water Resistance Watch",
-      price: "$579.00",
-      rating: 4.5,
-      reviews: 152,
+      name: "Apple Watch Series 9 GPS 45mm Sport Band",
+      price: "Rp 5.999.000",
+      rating: 4.7,
+      reviews: 234,
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/30bb4a99f09c3dda44670c7aaa64c172d42435d0?width=199",
+        "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=199&h=199&fit=crop&crop=center",
       isNew: true,
     },
     {
       id: 2,
-      name: "Microte Surface 2.0 Laptop",
-      price: "$979.00",
+      name: "MacBook Pro 14 inch M3 Chip 512GB",
+      price: "Rp 32.999.000",
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/1babf92db8508ce89fd5903587bb80de98c0015a?width=199",
+        "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=199&h=199&fit=crop&crop=center",
       isNew: true,
     },
     {
       id: 3,
-      name: "SROK Smart Phone 128GB, Oled Retina",
-      price: "$579.00",
-      originalPrice: "$779.00",
-      discount: "$192.00",
-      rating: 4.5,
-      reviews: 152,
+      name: "Samsung Galaxy A54 5G 256GB",
+      price: "Rp 5.499.000",
+      originalPrice: "Rp 6.499.000",
+      discount: "Rp 1.000.000",
+      rating: 4.4,
+      reviews: 189,
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/feb7f25a486395f79315526c0b1c3c809fdfea80?width=199",
+        "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=199&h=199&fit=crop&crop=center",
     },
   ];
 
