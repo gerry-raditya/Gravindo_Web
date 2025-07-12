@@ -502,7 +502,7 @@ export default function ProductDetail() {
 
                   <div className="flex items-center space-x-3">
                     <img
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/729b6d4a2198f6f856ec1391ccb8cf9ce6f21c12?width=100"
+                      src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=100&h=100&fit=crop&crop=center"
                       alt="Selected product"
                       className="w-12 h-12 rounded"
                     />
