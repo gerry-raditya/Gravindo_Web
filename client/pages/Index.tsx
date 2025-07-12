@@ -249,7 +249,7 @@ export default function Index() {
             </div>
 
             {/* Search */}
-            <div className="flex-1 max-w-lg mx-8">
+            <div className="flex-1 max-w-lg mx-4 md:mx-8">
               <div className="relative">
                 <Input
                   placeholder="Cari produk, jasa, & seller"
@@ -260,8 +260,8 @@ export default function Index() {
             </div>
 
             {/* Right Actions */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1 text-sm">
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <div className="hidden md:flex items-center space-x-1 text-sm">
                 <MapPin className="w-4 h-4" />
                 <div>
                   <div className="text-xs text-gray-600">Dikirim ke</div>
