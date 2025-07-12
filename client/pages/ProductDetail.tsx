@@ -40,22 +40,22 @@ export default function ProductDetail() {
       id: "midnight-blue",
       name: "Midnight Blue",
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/7e88cbff39182270649d90e0b2bbf6a9492f4e16?width=70",
-      price: "$569.00",
+        "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=70&h=70&fit=crop&crop=center",
+      price: "Rp 60.000",
     },
     {
       id: "deep-purple",
       name: "Deep Purple",
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/317dda0858f41302870bcdfc7a813d31971c9dfa?width=70",
-      price: "$569.00",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=70&h=70&fit=crop&crop=center",
+      price: "Rp 60.000",
     },
     {
       id: "space-black",
       name: "Space Black",
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/5a408308815bea538dbc0dada6f7083a526887ed?width=70",
-      price: "$569.00",
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=70&h=70&fit=crop&crop=center",
+      price: "Rp 60.000",
     },
   ];
 
