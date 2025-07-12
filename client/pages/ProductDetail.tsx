@@ -242,6 +242,19 @@ export default function ProductDetail() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-6">
+        {/* Breadcrumb */}
+        <div className="mb-4">
+          <div className="flex items-center space-x-2 text-sm text-gray-600">
+            <Link to="/" className="hover:text-teal-600">
+              Home
+            </Link>
+            <span>›</span>
+            <span>Cell Phones & Tablets</span>
+            <span>›</span>
+            <span className="text-gray-900">Somseng Galatero X6 Ultra LTE</span>
+          </div>
+        </div>
+
         <div className="bg-white rounded-lg p-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Product Images */}
