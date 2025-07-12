@@ -21,6 +21,7 @@ import {
   Package,
   Store,
   MoreHorizontal,
+  ArrowUp,
 } from "lucide-react";
 
 export default function Index() {
@@ -34,6 +35,15 @@ export default function Index() {
     lainnya: false,
     durasi: false,
   });
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useState(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleFilter = (filter: string) => {
     setActiveFilters((prev) => ({
@@ -313,7 +323,7 @@ export default function Index() {
 
         <div className="flex gap-6">
           {/* Sidebar Filters */}
-          <div className="w-64 space-y-4">
+          <div className="w-64 space-y-4 hidden lg:block">
             <h3 className="font-bold text-lg">Filter</h3>
 
             {/* Jenis Toko */}
@@ -463,7 +473,7 @@ export default function Index() {
 
           {/* Products Grid */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {products.map((product) => (
                 <Card
                   key={product.id}
@@ -539,6 +549,16 @@ export default function Index() {
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 w-12 h-12 bg-white border border-gray-200 rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow z-50"
+        >
+          <ArrowUp className="w-5 h-5 text-gray-700" />
+        </button>
+      )}
     </div>
   );
 }
