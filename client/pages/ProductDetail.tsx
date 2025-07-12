@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function ProductDetail() {
+  const { id } = useParams();
   const [selectedColor, setSelectedColor] = useState("midnight-blue");
   const [selectedMemory, setSelectedMemory] = useState("128gb");
   const [quantity, setQuantity] = useState(1);
