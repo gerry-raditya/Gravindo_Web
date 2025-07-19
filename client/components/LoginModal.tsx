@@ -23,8 +23,24 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
   const handleSignIn = () => {
     // Simulate login process
     if (phoneEmail.trim()) {
+      // Format phone number for display in verification step
       setCurrentStep("verification");
     }
+  };
+
+  const formatPhoneNumber = (phone: string) => {
+    // Simple phone number formatting for Indonesian numbers
+    if (phone.startsWith("08")) {
+      return (
+        `628${phone.substring(2)}`
+          .replace(/(.{3})/g, "$1")
+          .replace(/x/g, "x")
+          .substring(0, 12) + "xxxxxxx"
+      );
+    }
+    return phone.length > 0
+      ? phone.substring(0, 3) + "xxxxxxxxx"
+      : "628xxxxxxxxx";
   };
 
   const handleVerification = () => {
@@ -150,7 +166,8 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
 
       {/* Message Text */}
       <div className="text-[#1E1E1E] text-base font-normal text-center leading-[140%] w-full">
-        Kode verifikasi telah dikirim melalui SMS ke 628xxxxxxxxx.
+        Kode verifikasi telah dikirim melalui SMS ke{" "}
+        {formatPhoneNumber(phoneEmail)}.
       </div>
 
       {/* Divider Line */}
@@ -161,7 +178,13 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
         <span className="text-[#1E1E1E] text-base font-normal">
           Tidak Terima Kode ?{" "}
         </span>
-        <button className="text-[#01A49E] text-base font-bold underline hover:text-[#01A49E]/80">
+        <button
+          onClick={() => {
+            // Handle resend code logic
+            console.log("Resending code to:", phoneEmail);
+          }}
+          className="text-[#01A49E] text-base font-bold underline hover:text-[#01A49E]/80"
+        >
           Kirim Ulang
         </button>
       </div>
