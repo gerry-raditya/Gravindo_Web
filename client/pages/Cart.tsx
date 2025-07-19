@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import LoginModal from "@/components/LoginModal";
 
 const Cart = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>(["1", "2"]);
   const [selectAll, setSelectAll] = useState(true);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   const cartItems = [
     {
@@ -309,13 +311,22 @@ const Cart = () => {
                 <span className="text-sm text-[#212121]">Toko</span>
               </div>
 
-              <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/528949db3971b68cd4c14466f2bcdafd11a1c7a0?width=64"
-                  alt="Profile"
-                  className="w-8 h-8 rounded-full"
-                />
-                <span className="text-sm text-[#212121]">Gerry</span>
+              <div className="flex items-center gap-2">
+                <Button
+                  onClick={() => setLoginModalOpen(true)}
+                  variant="ghost"
+                  className="text-sm text-[#212121] hover:bg-gray-100 px-3 py-2"
+                >
+                  Masuk
+                </Button>
+                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/528949db3971b68cd4c14466f2bcdafd11a1c7a0?width=64"
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-sm text-[#212121]">Gerry</span>
+                </div>
               </div>
 
               <div className="relative bg-white rounded-xl p-2">
@@ -858,6 +869,9 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
     </div>
   );
 };
