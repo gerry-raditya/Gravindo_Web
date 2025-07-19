@@ -1023,6 +1023,9 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Login Modal */}
+      <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
     </div>
   );
 }
