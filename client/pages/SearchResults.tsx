@@ -627,6 +627,9 @@ export default function SearchResults() {
           </div>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <LoginModal open={loginModalOpen} onOpenChange={setLoginModalOpen} />
     </div>
   );
 }
