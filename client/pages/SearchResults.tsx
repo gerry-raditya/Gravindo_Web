@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import LoginModal from "@/components/LoginModal";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -31,6 +32,7 @@ export default function SearchResults() {
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("q") || "tes",
   );
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<{
     storeType: string[];
     location: string[];
@@ -221,6 +223,7 @@ export default function SearchResults() {
                 variant="outline"
                 size="sm"
                 className="border-green-600 text-green-600 hover:bg-green-50"
+                onClick={() => setLoginModalOpen(true)}
               >
                 Masuk
               </Button>
