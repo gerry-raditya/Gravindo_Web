@@ -159,8 +159,20 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
         <Input
           placeholder="Masukan Kode Verifikasi"
           value={verificationCode}
-          onChange={(e) => setVerificationCode(e.target.value)}
-          className="w-full min-w-[240px] px-4 py-3 text-center border-0 border-b border-[#D9D9D9] rounded-none bg-white text-base placeholder:text-[#B3B3B3] focus:ring-0 focus:border-b-2 focus:border-[#01A49E]"
+          onChange={(e) => {
+            const value = e.target.value.replace(/\D/g, ""); // Only allow digits
+            if (value.length <= 6) {
+              setVerificationCode(value);
+              // Auto-verify when 6 digits are entered
+              if (value.length === 6) {
+                setTimeout(() => {
+                  handleVerification();
+                }, 500);
+              }
+            }
+          }}
+          maxLength={6}
+          className="w-full min-w-[240px] px-4 py-3 text-center border-0 border-b border-[#D9D9D9] rounded-none bg-white text-base placeholder:text-[#B3B3B3] focus:ring-0 focus:border-b-2 focus:border-[#01A49E] tracking-[0.5em]"
         />
       </div>
 
