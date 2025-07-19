@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import LoginModal from "@/components/LoginModal";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,6 +31,7 @@ import {
 export default function Index() {
   const [email, setEmail] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
   const navigate = useNavigate();
 
   // Sample data for different sections
@@ -479,6 +481,7 @@ export default function Index() {
                 variant="outline"
                 size="sm"
                 className="border-green-600 text-green-600 hover:bg-green-50"
+                onClick={() => setLoginModalOpen(true)}
               >
                 Masuk
               </Button>
