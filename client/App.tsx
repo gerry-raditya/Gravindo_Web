@@ -41,16 +41,21 @@ const App = () => (
   </QueryClientProvider>
 );
 
-// Get the root element
-const rootElement = document.getElementById("root")!;
+// Initialize the React app
+function initApp() {
+  const rootElement = document.getElementById("root");
+  if (rootElement) {
+    const root = createRoot(rootElement);
+    root.render(<App />);
 
-// Create and render the app
-const root = createRoot(rootElement);
-root.render(<App />);
-
-// Handle HMR (Hot Module Replacement) for development
-if (import.meta.hot) {
-  import.meta.hot.dispose(() => {
-    root.unmount();
-  });
+    // Handle HMR for development
+    if (import.meta.hot) {
+      import.meta.hot.accept(() => {
+        root.render(<App />);
+      });
+    }
+  }
 }
+
+// Start the app
+initApp();
