@@ -54,6 +54,8 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
     setCurrentStep("login");
     setPhoneEmail("");
     setVerificationCode("");
+    // Redirect to dashboard
+    navigate("/dashboard");
   };
 
   const handleClose = () => {
