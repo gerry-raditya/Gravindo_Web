@@ -15,6 +15,7 @@ interface LoginModalProps {
 }
 
 export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState<"login" | "verification">(
     "login",
   );
