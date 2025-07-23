@@ -494,7 +494,7 @@ export default function SearchResults() {
             {/* Results Info */}
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600">
-                Menampilkan 1 - 60 barang dari total untuk "tes"
+                Menampilkan 1 - 60 barang dari total untuk "{searchQuery}"
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-xs font-semibold">Urutkan:</span>
