@@ -206,8 +206,8 @@ const UserDashboard = () => {
           {/* Content Card */}
           <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             {/* Tabs */}
-            <div className="border-b border-gray-300">
-              <div className="flex">
+            <div className="border-b border-gray-300 overflow-x-auto">
+              <div className="flex min-w-max lg:min-w-0">
                 {[
                   { id: 'biodata', label: 'Biodata Diri' },
                   { id: 'address', label: 'Daftar Alamat' },
@@ -220,7 +220,7 @@ const UserDashboard = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-4 py-3 text-sm font-bold capitalize ${
+                    className={`px-2 lg:px-4 py-3 text-xs lg:text-sm font-bold capitalize whitespace-nowrap ${
                       activeTab === tab.id
                         ? 'text-green-600 border-b-2 border-green-600'
                         : 'text-gray-600 hover:text-gray-800'
