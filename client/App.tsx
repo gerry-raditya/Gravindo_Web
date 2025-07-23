@@ -42,5 +42,12 @@ const App = () => (
 );
 
 const container = document.getElementById("root")!;
-const root = createRoot(container);
-root.render(<App />);
+
+// Check if root already exists to prevent double creation during HMR
+if (!container._reactRootContainer) {
+  const root = createRoot(container);
+  container._reactRootContainer = root;
+  root.render(<App />);
+} else {
+  container._reactRootContainer.render(<App />);
+}
