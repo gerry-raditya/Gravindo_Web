@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
+import TopupCategory from "./pages/TopupCategory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
