@@ -139,6 +139,12 @@ export default function SearchResults() {
     },
   ];
 
+  // Filter search results based on search query
+  const filteredResults = searchResults.filter((product) => {
+    if (!searchQuery.trim()) return true;
+    return product.title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
   const handleFilterChange = (
     filterType: keyof typeof selectedFilters,
     value: string | boolean,
