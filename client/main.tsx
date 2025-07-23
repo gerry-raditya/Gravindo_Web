@@ -6,7 +6,7 @@ const rootElement = document.getElementById("root");
 if (rootElement) {
   const root = createRoot(rootElement);
   root.render(<App />);
-  
+
   // Handle HMR for development
   if (import.meta.hot) {
     import.meta.hot.accept("./App", () => {
