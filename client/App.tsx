@@ -43,11 +43,8 @@ const App = () => (
 
 const container = document.getElementById("root")!;
 
-// Check if root already exists to prevent double creation during HMR
-if (!container._reactRootContainer) {
+// Simple approach to prevent double root creation during development
+if (!container.hasChildNodes()) {
   const root = createRoot(container);
-  container._reactRootContainer = root;
   root.render(<App />);
-} else {
-  container._reactRootContainer.render(<App />);
 }
