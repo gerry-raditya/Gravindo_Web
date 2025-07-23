@@ -28,7 +28,8 @@ import {
 } from "lucide-react";
 
 export default function SearchResults() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("q") || "",
   );
