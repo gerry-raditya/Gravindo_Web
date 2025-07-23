@@ -146,6 +146,13 @@ export default function SearchResults() {
     return product.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setSearchParams({ q: searchQuery.trim() });
+    }
+  };
+
   const handleFilterChange = (
     filterType: keyof typeof selectedFilters,
     value: string | boolean,
