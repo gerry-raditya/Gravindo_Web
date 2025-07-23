@@ -41,10 +41,8 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const container = document.getElementById("root")!;
-
-// Simple approach to prevent double root creation during development
-if (!container.hasChildNodes()) {
-  const root = createRoot(container);
+const rootElement = document.getElementById("root");
+if (rootElement && !rootElement.innerHTML) {
+  const root = createRoot(rootElement);
   root.render(<App />);
 }
