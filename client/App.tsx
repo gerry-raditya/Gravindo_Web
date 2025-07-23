@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import TopupCategory from "./pages/TopupCategory";
 import PulsaTopup from "./pages/PulsaTopup";
 import UserDashboard from "./pages/UserDashboard";
+import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
