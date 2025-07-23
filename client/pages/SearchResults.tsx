@@ -34,6 +34,11 @@ export default function SearchResults() {
     searchParams.get("q") || "",
   );
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+  useEffect(() => {
+    const queryParam = searchParams.get("q") || "";
+    setSearchQuery(queryParam);
+  }, [searchParams]);
   const [selectedFilters, setSelectedFilters] = useState<{
     storeType: string[];
     location: string[];
