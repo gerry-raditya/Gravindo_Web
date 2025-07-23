@@ -233,19 +233,24 @@ const UserDashboard = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="p-6">
+            <div className="p-3 lg:p-6">
               {activeTab === 'address' && (
                 <div>
                   {/* Search and Add Button */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex-1 max-w-lg relative">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-0 sm:justify-between mb-6">
+                    <div className="flex-1 max-w-lg">
                       <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2">
-                        <svg className="w-6 h-6 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 mr-2 lg:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
+                        <input
+                          type="text"
+                          placeholder="Cari alamat..."
+                          className="flex-1 text-sm outline-none"
+                        />
                       </div>
                     </div>
-                    <button className="bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-green-700">
+                    <button className="bg-green-600 text-white px-3 lg:px-4 py-2 rounded-lg font-bold text-xs lg:text-sm hover:bg-green-700 whitespace-nowrap sm:ml-4">
                       + Tambah Alamat Baru
                     </button>
                   </div>
