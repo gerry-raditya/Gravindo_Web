@@ -491,9 +491,8 @@ export default function TopupCategory() {
 
               <div className="text-center mb-4 md:mb-0">
                 <p className="text-lg font-bold mb-2">
-                  Subscribe & Get{" "}
-                  <span className="text-red-500">10% Off</span> For Your First
-                  Order
+                  Subscribe & Get <span className="text-red-500">10% Off</span>{" "}
+                  For Your First Order
                 </p>
                 <div className="flex items-center border-b border-gray-300 pb-2 max-w-lg mx-auto">
                   <input
@@ -542,8 +541,8 @@ export default function TopupCategory() {
 
             <div className="flex justify-between items-center mt-8">
               <p className="text-sm text-gray-600">
-                © 2024 <span className="font-bold text-black">Shawonetc3</span>.
-                All Rights Reserved
+                © 2024 <span className="font-bold text-black">Shawonetc3</span>
+                . All Rights Reserved
               </p>
               <p className="text-sm text-blue-600">📱 Mobile Site</p>
             </div>

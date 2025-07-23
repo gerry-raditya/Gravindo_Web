@@ -30,9 +30,7 @@ import {
 export default function SearchResults() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("q") || "",
-  );
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   useEffect(() => {
@@ -513,7 +511,8 @@ export default function SearchResults() {
             {/* Results Info */}
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600">
-                Menampilkan 1 - {filteredResults.length} barang dari {filteredResults.length} total untuk "{searchQuery}"
+                Menampilkan 1 - {filteredResults.length} barang dari{" "}
+                {filteredResults.length} total untuk "{searchQuery}"
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-xs font-semibold">Urutkan:</span>
