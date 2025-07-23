@@ -41,8 +41,16 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement && !rootElement.innerHTML) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
+// Get the root element
+const rootElement = document.getElementById("root")!;
+
+// Create and render the app
+const root = createRoot(rootElement);
+root.render(<App />);
+
+// Handle HMR (Hot Module Replacement) for development
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    root.unmount();
+  });
 }
