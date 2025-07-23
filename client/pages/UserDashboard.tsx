@@ -81,7 +81,7 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      <div className="flex max-w-7xl mx-auto py-4 px-4">
+      <div className="flex max-w-7xl mx-auto py-4 px-4 gap-6">
         {/* Left Sidebar */}
         <div className="w-60 bg-white rounded-lg border border-gray-200 h-fit mr-6">
           {/* User Profile Section */}
