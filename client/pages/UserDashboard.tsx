@@ -52,36 +52,36 @@ const UserDashboard = () => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 ml-auto">
+        <div className="flex items-center space-x-2 lg:space-x-4 ml-auto">
           {/* Shopping cart */}
           <div className="relative">
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 9H19" />
             </svg>
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 lg:w-5 lg:h-5 flex items-center justify-center">2</span>
           </div>
 
           {/* Notifications */}
-          <div className="relative">
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="relative hidden sm:block">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 3h8v8" />
             </svg>
           </div>
 
           {/* Messages */}
-          <div className="relative">
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="relative hidden sm:block">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
           </div>
 
           {/* User profile */}
-          <div className="flex items-center space-x-2">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/414ea22ad8817b0de4008d1573d0f1d7301cdbef?width=64" alt="Profile" className="w-8 h-8 rounded-full" />
-            <span className="text-sm text-gray-800">Toko</span>
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/414ea22ad8817b0de4008d1573d0f1d7301cdbef?width=64" alt="Profile" className="w-8 h-8 rounded-full" />
-            <span className="text-sm text-gray-800">Gerry</span>
+          <div className="flex items-center space-x-1 lg:space-x-2">
+            <img src="https://api.builder.io/api/v1/image/assets/TEMP/414ea22ad8817b0de4008d1573d0f1d7301cdbef?width=64" alt="Profile" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full" />
+            <span className="text-xs lg:text-sm text-gray-800 hidden sm:block">Toko</span>
+            <img src="https://api.builder.io/api/v1/image/assets/TEMP/414ea22ad8817b0de4008d1573d0f1d7301cdbef?width=64" alt="Profile" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full" />
+            <span className="text-xs lg:text-sm text-gray-800">Gerry</span>
           </div>
         </div>
       </div>
