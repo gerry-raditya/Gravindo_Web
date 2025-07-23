@@ -11,6 +11,7 @@ import ProductDetail from "./pages/ProductDetail";
 import SearchResults from "./pages/SearchResults";
 import Cart from "./pages/Cart";
 import TopupCategory from "./pages/TopupCategory";
+import PulsaTopup from "./pages/PulsaTopup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
