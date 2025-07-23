@@ -30,7 +30,7 @@ import {
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("q") || "tes",
+    searchParams.get("q") || "",
   );
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<{
