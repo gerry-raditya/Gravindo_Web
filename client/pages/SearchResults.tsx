@@ -209,7 +209,7 @@ export default function SearchResults() {
 
             {/* Search */}
             <div className="flex-1 max-w-2xl">
-              <div className="relative">
+              <form onSubmit={handleSearch} className="relative">
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -217,7 +217,7 @@ export default function SearchResults() {
                   className="pl-10 pr-4 py-2"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              </div>
+              </form>
             </div>
 
             {/* Right Actions */}
