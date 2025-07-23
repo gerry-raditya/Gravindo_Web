@@ -27,7 +27,7 @@ import {
   ArrowUp,
 } from "lucide-react";
 
-export default function SearchResults() {
+function SearchResults() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
