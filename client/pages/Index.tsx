@@ -488,6 +488,7 @@ export default function Index() {
               <Button
                 size="sm"
                 className="bg-green-600 hover:bg-green-700 text-white"
+                onClick={() => navigate("/register")}
               >
                 Daftar
               </Button>
