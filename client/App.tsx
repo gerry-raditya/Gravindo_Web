@@ -32,6 +32,7 @@ const App = () => (
           <Route path="/topup" element={<TopupCategory />} />
           <Route path="/topup/pulsa" element={<PulsaTopup />} />
           <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/riwayat-saldo" element={<RiwayatSaldo />} />
           <Route path="/register" element={<Register />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
