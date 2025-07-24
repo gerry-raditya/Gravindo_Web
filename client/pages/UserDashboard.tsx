@@ -238,7 +238,10 @@ const UserDashboard = () => {
                 <span className="text-xs text-green-600">Daftar Sekarang</span>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div
+                className="flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 rounded-lg"
+                onClick={() => navigate('/riwayat-saldo')}
+              >
                 <div className="flex items-center">
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/985aa3754c43b0519cf760c1232e7f1fd068f245?width=48"
