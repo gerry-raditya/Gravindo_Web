@@ -318,6 +318,7 @@ const UserDashboard = () => {
                 <div
                   key={item}
                   className="px-4 py-2 text-xs hover:bg-gray-50 cursor-pointer border-l-3 border-transparent"
+                  onClick={() => item === "Daftar Transaksi" && navigate('/daftar-transaksi')}
                 >
                   {item}
                 </div>
