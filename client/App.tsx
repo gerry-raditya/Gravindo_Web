@@ -14,6 +14,7 @@ import PulsaTopup from "./pages/PulsaTopup";
 import UserDashboard from "./pages/UserDashboard";
 import RiwayatSaldo from "./pages/RiwayatSaldo";
 import DaftarTransaksi from "./pages/DaftarTransaksi";
+import ResellerPage from "./pages/ResellerPage";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
