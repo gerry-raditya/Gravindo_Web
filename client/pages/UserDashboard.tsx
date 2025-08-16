@@ -326,6 +326,35 @@ const UserDashboard = () => {
             </div>
           </div>
 
+          <div className="border-b border-gray-200">
+            <div className="p-3 bg-white border-b">
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-xs">Reseller</h3>
+                <svg
+                  className="w-6 h-6 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="space-y-0">
+              <div
+                className="px-4 py-2 text-xs hover:bg-gray-50 cursor-pointer border-l-3 border-transparent"
+                onClick={() => navigate('/reseller')}
+              >
+                Dashboard Reseller
+              </div>
+            </div>
+          </div>
+
           <div>
             <div className="p-3 bg-white border-b">
               <div className="flex items-center justify-between">
