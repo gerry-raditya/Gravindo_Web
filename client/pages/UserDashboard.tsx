@@ -240,7 +240,7 @@ const UserDashboard = () => {
 
               <div
                 className="flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 rounded-lg"
-                onClick={() => navigate('/riwayat-saldo')}
+                onClick={() => navigate("/riwayat-saldo")}
               >
                 <div className="flex items-center">
                   <img
@@ -318,7 +318,9 @@ const UserDashboard = () => {
                 <div
                   key={item}
                   className="px-4 py-2 text-xs hover:bg-gray-50 cursor-pointer border-l-3 border-transparent"
-                  onClick={() => item === "Daftar Transaksi" && navigate('/daftar-transaksi')}
+                  onClick={() =>
+                    item === "Daftar Transaksi" && navigate("/daftar-transaksi")
+                  }
                 >
                   {item}
                 </div>
@@ -348,7 +350,7 @@ const UserDashboard = () => {
             <div className="space-y-0">
               <div
                 className="px-4 py-2 text-xs hover:bg-gray-50 cursor-pointer border-l-3 border-transparent"
-                onClick={() => navigate('/reseller')}
+                onClick={() => navigate("/reseller")}
               >
                 Dashboard Reseller
               </div>
