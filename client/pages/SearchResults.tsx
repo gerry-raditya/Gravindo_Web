@@ -26,6 +26,7 @@ import {
   ChevronUp,
   ArrowUp,
 } from "lucide-react";
+import { api } from "@/lib/config";
 
 function SearchResults() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,9 +35,16 @@ function SearchResults() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   useEffect(() => {
+    getProducts();
     const queryParam = searchParams.get("q") || "";
     setSearchQuery(queryParam);
   }, [searchParams]);
+
+  const getProducts = async () => {
+    const products = await api.get("/products")
+    console.log(products)
+  }
+
   const [selectedFilters, setSelectedFilters] = useState<{
     storeType: string[];
     location: string[];
