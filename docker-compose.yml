@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  gravindo-web-dev:
+    image: node:18-alpine
+    container_name: gravindo-web-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules # Hindari konflik node_modules antara host & container
+    ports:
+      - "5173:5173" # Vite dev server
+      - "24678:24678" # Vite HMR WebSocket (penting untuk hot reload!)
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    networks:
+      - cloudflare_networks
+
+networks:
+  cloudflare_networks:
+    external: true

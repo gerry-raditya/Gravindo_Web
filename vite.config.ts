@@ -5,14 +5,24 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  plugins: [react()],
   server: {
-    host: "::",
-    port: 3000,
+    // host: "0.0.0.0",
+    host: "localhost",
+    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
+    strictPort: true,
+    hmr: {
+      port: 24678,
+    },
+    allowedHosts: [
+      '*',
+      'gravindo-web.akatechvision.my.id'  // 👈 Tambahkan domain custom kamu di sini
+    ]
   },
   build: {
     outDir: "dist/spa",
   },
-  plugins: [react(), expressPlugin()],
+  // plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),

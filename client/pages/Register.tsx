@@ -2,19 +2,33 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import axios from 'axios';
+import { apiClient } from "@/config/apiConfig";
+
+
+interface RegisterPayload {
+  email: string;
+  password: string;
+}
 
 const Register = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [payload, setPayload] = useState<RegisterPayload>({
+    email: "",
+    password: ""
+  });
 
   const handleGoogleSignUp = () => {
-    // Handle Google sign up logic
     console.log("Google sign up");
   };
 
-  const handleEmailSignUp = () => {
-    // Handle email sign up logic
-    console.log("Email sign up:", email);
+  const handleEmailSignUp = async () => {
+    try {
+      const response = await apiClient.post('/v1/register', payload);
+      console.log("Registration successful:", response.data);
+    }catch(error){
+      console.error("Registration error:", error.message);
+    }
   };
 
   return (
@@ -76,8 +90,11 @@ const Register = () => {
                     <div className="relative">
                       <Input
                         type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={payload.email}
+                        onChange={(e) => setPayload({
+                          ...payload,
+                          email: e.target.value,
+                        })}
                         placeholder=""
                         className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       />
@@ -93,9 +110,9 @@ const Register = () => {
                   {/* Register Button */}
                   <Button
                     onClick={handleEmailSignUp}
-                    disabled={!email.trim()}
+                    disabled={!payload.email.trim()}
                     className={`w-full py-3 rounded-lg font-bold text-sm ${
-                      email.trim()
+                      payload.email.trim()
                         ? "bg-green-600 hover:bg-green-700 text-white"
                         : "bg-gray-200 text-gray-400 cursor-not-allowed"
                     }`}

@@ -498,7 +498,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative">
+      <section className="w-[900px] mx-auto relative rounded-b-md">
         <div
           className="h-[400px] md:h-[500px] bg-gradient-to-r from-blue-500/20 to-green-500/20 flex items-center"
           style={{
