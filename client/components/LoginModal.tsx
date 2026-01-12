@@ -23,15 +23,13 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
   const [verificationCode, setVerificationCode] = useState("");
 
   const handleSignIn = () => {
-    // Simulate login process
     if (phoneEmail.trim()) {
-      // Format phone number for display in verification step
+      
       setCurrentStep("verification");
     }
   };
 
   const formatPhoneNumber = (phone: string) => {
-    // Simple phone number formatting for Indonesian numbers
     if (phone.startsWith("08")) {
       return (
         `628${phone.substring(2)}`
@@ -46,21 +44,16 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
   };
 
   const handleVerification = () => {
-    // Handle verification code submission
     console.log("Verification code:", verificationCode);
-    // Close modal after successful verification
     onOpenChange(false);
-    // Reset state
     setCurrentStep("login");
     setPhoneEmail("");
     setVerificationCode("");
-    // Redirect to dashboard
     navigate("/dashboard");
   };
 
   const handleClose = () => {
     onOpenChange(false);
-    // Reset state when closing
     setCurrentStep("login");
     setPhoneEmail("");
     setVerificationCode("");
@@ -68,7 +61,6 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
 
   const renderLoginForm = () => (
     <div className="flex flex-col items-center gap-6 p-5 w-[452px]">
-      {/* Divider with text */}
       <div className="flex items-center justify-center w-full relative">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-black/43"></div>
@@ -143,7 +135,6 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
 
   const renderVerificationForm = () => (
     <div className="flex flex-col items-center gap-6 p-5 w-[452px]">
-      {/* Chat Bubble Icon */}
       <svg
         width="62"
         height="53"
@@ -164,10 +155,9 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
           placeholder="Masukan Kode Verifikasi"
           value={verificationCode}
           onChange={(e) => {
-            const value = e.target.value.replace(/\D/g, ""); // Only allow digits
+            const value = e.target.value.replace(/\D/g, "");
             if (value.length <= 6) {
               setVerificationCode(value);
-              // Auto-verify when 6 digits are entered
               if (value.length === 6) {
                 setTimeout(() => {
                   handleVerification();
@@ -196,7 +186,6 @@ export default function LoginModal({ open, onOpenChange }: LoginModalProps) {
         </span>
         <button
           onClick={() => {
-            // Handle resend code logic
             console.log("Resending code to:", phoneEmail);
           }}
           className="text-[#01A49E] text-base font-bold underline hover:text-[#01A49E]/80"

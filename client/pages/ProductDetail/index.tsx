@@ -25,67 +25,30 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
+import { FuncProductDetail } from "./hooks";
 
 export default function ProductDetail() {
-  const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState("default");
+  const {payload, selectedImage, setSelectedImage} = FuncProductDetail();
 
-  // Sample product data
   const product = {
-    id,
-    title: "Greavard - 087/078 AR - Violet ex (Pokemon TCG Japanese)",
-    price: "Rp50.000",
-    originalPrice: "Rp75.000",
-    discount: "33%",
-    rating: 5.0,
-    reviewCount: 127,
-    sold: "2.5rb+ terjual",
-    images: [
-      "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2024/11/14/f404ca3e-609c-4fdb-4b4a-4eb883a66397.jpg",
-      "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2024/11/14/1adc1e64-0486-0a0c-e023-ff54b32dbf56.jpg",
-      "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2024/11/14/2acde719-0453-24a5-2189-58d2f97d538f.jpg",
-    ],
-    store: {
-      name: "Pokemon Card Store",
-      location: "Jakarta Pusat",
-      rating: 4.9,
-      responseTime: "≈ 2 jam",
-      verified: true,
-    },
-    description: `
-      Kartu Pokemon TCG original dari Jepang dengan kondisi mint.
-      
-      Spesifikasi:
-      - Set: Violet ex (sv1V)
-      - Card Number: 087/078
-      - Rarity: AR (Alternate Art)
-      - Condition: Near Mint/Mint
-      - Language: Japanese
-      
-      Cocok untuk kolektor dan pemain TCG Pokemon.
-    `,
-    variants: [
-      { id: "default", name: "Single Card", price: "Rp50.000" },
-      { id: "set", name: "Complete Set (3 cards)", price: "Rp140.000" },
-    ],
-    features: [
+   features: [
       "Garansi keaslian 100%",
       "Packing aman dengan sleeve",
       "Gratis tracking number",
       "Kondisi mint guaranteed",
-    ],
+    ]
   };
 
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
+  
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
 
-  const selectedVariantData = product.variants.find(
+  const selectedVariantData = payload.product?.variants?.find(
     (v) => v.id === selectedVariant,
   );
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -122,47 +85,49 @@ export default function ProductDetail() {
             <div className="aspect-square bg-white rounded-lg border overflow-hidden">
               <img
                 src={selectedImage}
-                alt={product.title}
+                alt={payload.product.title}
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex space-x-3">
-              {product.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(image)}
-                  className={`w-20 h-20 border-2 rounded-lg overflow-hidden ${
-                    selectedImage === image
-                      ? "border-green-600"
-                      : "border-gray-200"
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`View ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+            {payload.product && payload.product.images.length > 0 && (
+              <div className="flex space-x-3">
+                {payload.product.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(image)}
+                    className={`w-20 h-20 border-2 rounded-lg overflow-hidden ${
+                      selectedImage === image
+                        ? "border-green-600"
+                        : "border-gray-200"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`View ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
           <div className="space-y-6">
             <div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                {product.title}
+                {payload.product.title}
               </h1>
               <div className="flex items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-1">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="font-medium">{product.rating}</span>
-                  <span className="text-gray-600">
-                    ({product.reviewCount} ulasan)
-                  </span>
+                  <span className="font-medium">{payload.product.rating}</span>
+                  {/* <span className="text-gray-600">
+                    ({payload.product.})
+                  </span> */}
                 </div>
                 <span className="text-gray-600">•</span>
-                <span className="text-gray-600">{product.sold}</span>
+                <span className="text-gray-600">{payload.product.sold}</span>
               </div>
             </div>
 
@@ -172,13 +137,13 @@ export default function ProductDetail() {
                 <span className="text-3xl font-bold text-gray-900">
                   {selectedVariantData?.price}
                 </span>
-                {product.originalPrice && (
+                {payload.product.price && (
                   <>
                     <span className="text-lg text-gray-400 line-through">
-                      {product.originalPrice}
+                      {payload.product.price}
                     </span>
                     <Badge className="bg-red-100 text-red-600">
-                      {product.discount}
+                      {payload.product.rating}
                     </Badge>
                   </>
                 )}
@@ -191,22 +156,24 @@ export default function ProductDetail() {
             {/* Variants */}
             <div className="space-y-3">
               <h3 className="font-medium">Pilih Varian</h3>
-              <div className="grid grid-cols-2 gap-2">
-                {product.variants.map((variant) => (
-                  <button
-                    key={variant.id}
-                    onClick={() => setSelectedVariant(variant.id)}
-                    className={`p-3 border rounded-lg text-left ${
-                      selectedVariant === variant.id
-                        ? "border-green-600 bg-green-50"
-                        : "border-gray-200 hover:border-gray-300"
-                    }`}
-                  >
-                    <div className="font-medium text-sm">{variant.name}</div>
-                    <div className="text-sm text-gray-600">{variant.price}</div>
-                  </button>
-                ))}
-              </div>
+              {payload.product && payload.product?.variants?.length >= 0 &&(
+                <div className="grid grid-cols-2 gap-2">
+                  {payload.product.variants.map((variant) => (
+                    <button
+                      key={variant.id}
+                      onClick={() => setSelectedVariant(variant.id)}
+                      className={`p-3 border rounded-lg text-left ${
+                        selectedVariant === variant.id
+                          ? "border-green-600 bg-green-50"
+                          : "border-gray-200 hover:border-gray-300"
+                      }`}
+                    >
+                      <div className="font-medium text-sm">{variant.name}</div>
+                      <div className="text-sm text-gray-600">{variant.price}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Quantity */}
@@ -261,17 +228,19 @@ export default function ProductDetail() {
             </div>
 
             {/* Features */}
-            <div className="space-y-2">
-              {product.features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-2 text-sm"
-                >
-                  <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
+            {product.features?.length && (
+              <div className="space-y-2">
+                {product.features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center space-x-2 text-sm"
+                  >
+                    <div className="w-1.5 h-1.5 bg-green-600 rounded-full"></div>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* Shipping Info */}
             <Card>
@@ -320,8 +289,8 @@ export default function ProductDetail() {
                 </div>
                 <div>
                   <div className="flex items-center space-x-2">
-                    <h3 className="font-bold text-lg">{product.store.name}</h3>
-                    {product.store.verified && (
+                    <h3 className="font-bold text-lg">{payload.store.name}</h3>
+                    {payload.store.is_verified && (
                       <Badge className="bg-green-100 text-green-600">
                         <Shield className="w-3 h-3 mr-1" />
                         Verified
@@ -331,13 +300,13 @@ export default function ProductDetail() {
                   <div className="flex items-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center space-x-1">
                       <MapPin className="w-4 h-4" />
-                      <span>{product.store.location}</span>
+                      <span>{payload.store.location}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span>{product.store.rating}</span>
+                      <span>{payload.store.rating}</span>
                     </div>
-                    <span>Respon {product.store.responseTime}</span>
+                    <span>Respon {payload.store.response_time}</span>
                   </div>
                 </div>
               </div>
@@ -355,7 +324,7 @@ export default function ProductDetail() {
             <h3 className="font-bold text-lg mb-4">Deskripsi Produk</h3>
             <div className="prose prose-sm max-w-none">
               <pre className="whitespace-pre-wrap font-sans text-gray-700">
-                {product.description}
+                {payload.product.description}
               </pre>
             </div>
           </CardContent>

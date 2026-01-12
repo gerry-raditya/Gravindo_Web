@@ -1,45 +1,33 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { createServer } from "./server";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  plugins: [react()],
-  server: {
-    // host: "0.0.0.0",
-    host: "localhost",
-    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
-    strictPort: true,
-    hmr: {
-      port: 24678,
-    },
-    allowedHosts: [
-      '*',
-      'gravindo-web.akatechvision.my.id'  // 👈 Tambahkan domain custom kamu di sini
-    ]
-  },
-  build: {
-    outDir: "dist/spa",
-  },
-  // plugins: [react(), expressPlugin()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./client"),
-      "@shared": path.resolve(__dirname, "./shared"),
-    },
-  },
-}));
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
 
-function expressPlugin(): Plugin {
   return {
-    name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
-    configureServer(server) {
-      const app = createServer();
+    plugins: [react()],
 
-      // Add Express app as middleware to Vite dev server
-      server.middlewares.use(app);
+    server: {
+      host: "localhost",
+      port: 5173,
+      strictPort: true,
+
+      proxy: {
+        '/v1': {
+          target: env.VITE_API_BASE_URL || 'http://localhost:3022',
+          changeOrigin: true,
+          secure: false,
+          // ❌ JANGAN rewrite
+          // karena backend memang /v1
+        },
+      },
+    },
+
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./client"),
+      },
     },
   };
-}
+});
