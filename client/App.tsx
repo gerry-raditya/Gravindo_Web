@@ -17,10 +17,12 @@ import DaftarTransaksi from "./pages/DaftarTransaksi";
 import ResellerPage from "./pages/ResellerPage";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
-
+import {store} from "./config/reudx.store";
+import { Provider } from "react-redux";
 const queryClient = new QueryClient();
 
 const App = () => (
+  <Provider store={store}>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -44,6 +46,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </Provider>
 );
 
 export default App;
