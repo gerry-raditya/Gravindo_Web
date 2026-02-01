@@ -77,68 +77,7 @@ export default function Index() {
   //   },
   // ];
 
-  const flashSaleProducts = [
-    {
-      id: 1,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/f404ca3e-609c-4fdb-4b4a-4eb883a66397.jpg",
-      title: "Greavard - 087/078 AR - Violet ex (Pokemon TCG Japanese)",
-      price: "Rp50.000",
-      rating: 5.0,
-      sold: "22 terjual",
-    },
-    {
-      id: 2,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/1adc1e64-0486-0a0c-e023-ff54b32dbf56.jpg",
-      title: "Pokemon Violet EX sv1V - 087 Greavard AR",
-      price: "Rp50.000",
-      rating: 5.0,
-      sold: "4 terjual",
-    },
-    {
-      id: 3,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/2acde719-0453-24a5-2189-58d2f97d538f.jpg",
-      title:
-        "AR Scarlet Violet sv1S sv1V Kirlia Ralts Fidough Riolu Greavard Pachirisu Scovillain Slowpoke Japan",
-      price: "Rp45.000",
-      rating: 5.0,
-      sold: "10 terjual",
-    },
-    {
-      id: 4,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/5ce505f4-d2f1-912a-8457-3c47eef4b69a.jpg",
-      title:
-        "Kartu Pokemon TCG Japan Greavard AR sv1v 087/078 Trading Card Game Jepang Jpn Original",
-      price: "Rp45.000",
-      rating: 5.0,
-      sold: "6 terjual",
-    },
-    {
-      id: 5,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/d1fd1f2c-c34d-3e77-371d-82d204a5c855.jpg",
-      title: "pokemon tcg sv1v 087/078 greavard ar",
-      price: "Rp45.000",
-      rating: 5.0,
-      sold: "3 terjual",
-    },
-    {
-      id: 6,
-      image:
-        "https://images.tokopedia.net/img/cache/138-square/VqbcmM/2024/11/14/4a2a68cd-2c21-90ce-7256-75eee2d4959a.jpg",
-      title: "Greavard SV1V AR 87 Pokemon TCG Japan",
-      price: "Rp115.000",
-      rating: 5.0,
-      sold: "4 terjual",
-    },
-  ];
-
-  const popularProducts = [...flashSaleProducts];
-  const newProducts = [...flashSaleProducts];
-
+  
   const forYouProducts = [
     {
       id: 1,
@@ -649,7 +588,7 @@ export default function Index() {
         
 
         {/* For You Section */}
-        <SectionForYou productForYou={forYouProducts}/>
+        <SectionForYou productForYou={payload.products.recommedProduct}/>
         
       </div>
 

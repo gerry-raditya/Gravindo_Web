@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 export const apiClient = axios.create({
-    baseURL: "/v1", // Replace with your API base URL
+    baseURL: "/api", // Replace with your API base URL
     timeout: 10000, // Request timeout
     withCredentials: true,
     headers: {
@@ -32,12 +32,14 @@ apiClient.interceptors.response.use(
         return response;
     },
     error => {
+        console.log(`ERROR: ${error}`)
         // Handle errors globally
         if (error.response) {
             // Server responded with a status other than 2xx
             console.error('API Error:', error.response.status, error.response.data);
             if (error.response.status === 401) {
                 // Handle unauthorized access, e.g., redirect to login
+                return;
                 window.location.href = '/login';
             }
         } else if (error.request) {

@@ -14,8 +14,13 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
 
       proxy: {
+        '/api': {
+          target: env.VITE_API_ADMIN || 'http://127.0.0.1:8000', // 👈 dari env
+          changeOrigin: true,
+          secure: false,
+        },
         '/v1': {
-          target: env.VITE_API_BASE_URL || 'http://localhost:3022',
+          target: env.VITE_API_URL || 'http://localhost:3022',
           changeOrigin: true,
           secure: false,
           // ❌ JANGAN rewrite

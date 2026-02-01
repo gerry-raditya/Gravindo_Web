@@ -19,6 +19,7 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import {store} from "./config/reudx.store";
 import { Provider } from "react-redux";
+import Checkout from "./pages/Checkout";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/checkout/:sessionId" element={<Checkout />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/topup" element={<TopupCategory />} />
           <Route path="/topup/pulsa" element={<PulsaTopup />} />

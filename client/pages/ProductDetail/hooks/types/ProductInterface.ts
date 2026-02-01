@@ -37,6 +37,8 @@ export interface IProduct {
   category: ICategory
   store_id: string
   variants: IVariant[]
+  final_price: string
+  promotion: {}
 }
 
 /* ========= STORE ========= */
@@ -68,11 +70,13 @@ export const initialProductState: IProductDetailResponse = {
     images: [],
     title: "",
     price: 0,
+    final_price: "",
     rating: 0,
     sold: 0,
     location: "",
     description: "",
     category_id: "",
+    promotion:null,
     category: {
       id: "",
       created_at: "",

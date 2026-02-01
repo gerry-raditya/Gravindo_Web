@@ -10,7 +10,8 @@ interface IReturn {
       categories: any[],
       products:{
         popular: any[],
-        product: any[]
+        product: any[],
+        recommedProduct: any[]
       },
       promo: any[]
     }
@@ -25,7 +26,8 @@ const initState = {
       categories: [],
       products:{
         popular: [],
-        product: []
+        product: [],
+        recommedProduct:[]
       },
       promo: []
 }
@@ -52,8 +54,8 @@ const FuncHome = (): IReturn => {
 
   const getCategory = async () : Promise<void> =>{
     try {
-      const category = await apiClient.get('/category')
-      dispatch(setCategories(category.data.data));
+      const category = await apiClient.get('/public/categories?page=1&SortField=id&SortType=desc&search=&limit=10')
+      dispatch(setCategories(category.data.categories));
     } catch (err) {
       return console.log(err);
     }
@@ -62,13 +64,15 @@ const FuncHome = (): IReturn => {
 
   const getProduct = async () : Promise<void> =>{
     try {
-      const productPopular = await apiClient.get(`/product/popular`)
-      const product = await apiClient.get(`/product`)
+      const productPopular = await apiClient.get(`/public/product/popular`)
+      const product = await apiClient.get(`/public/products`)
+      const recommedProduct = await apiClient.get(`/public/product/recommendation`)
       return setPayload((prev)=> ({
         ...prev,
         products: {
           popular: productPopular.data.data.product, 
-          product:product.data.data.product
+          product:product.data.products,
+          recommedProduct: recommedProduct.data.data
         }
       }))
       
@@ -80,7 +84,7 @@ const FuncHome = (): IReturn => {
   const getFlashSale = async (): Promise<void> => {
     try {
       const cat = "flash-sale"
-      const getFlashSale = await apiClient.get(`/promotion/category?promo=${cat}`)
+      const getFlashSale = await apiClient.get(`/public/promotions/${cat}`)
       const flashSaleProduct = getFlashSale.data.data.find(val => val.slug === cat.trim()).promotions?.[0].products || []
       return setPayload((prev)=>({
         ...prev,
