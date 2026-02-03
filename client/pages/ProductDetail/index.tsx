@@ -136,7 +136,7 @@ export default function ProductDetail() {
           {/* ACTIONS */}
           <div className="space-y-3">
             <div className="flex gap-3">
-              <Button onClick={handleBuyNow} className="flex-1 bg-green-600">
+              <Button onClick={handleBuyNow} className={product.stock <= 0 ? "flex-1 bg-green-600 disabled" : "flex-1 bg-green-600" } disabled={product.stock <= 0 ? true : false}>
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 Beli Langsung
               </Button>

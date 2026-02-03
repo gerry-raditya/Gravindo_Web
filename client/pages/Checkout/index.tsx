@@ -95,6 +95,9 @@ export default function Checkout() {
         window.location.href = res.data.data.pay_url;
       }
       window.location.href = res.data.data.checkout_url;
+    
+    }catch (err){
+      console.log(err.response.data.message)
     } finally {
       setSubmitting(false);
     }

@@ -23,22 +23,37 @@ export interface ICategory {
 
 /* ========= PRODUCT ========= */
 export interface IProduct {
-  id: string
-  created_at: string
-  updated_at: string
-  images: string[]
-  title: string
-  price: number
-  rating: number
-  sold: number
-  location: string
-  description: string
-  category_id: string
-  category: ICategory
-  store_id: string
-  variants: IVariant[]
-  final_price: string
-  promotion: {}
+  id: string;
+  created_at: string;
+  updated_at: string;
+  images: string[];
+  title: string;
+  price: number;
+  final_price: string;
+  rating: number;
+  sold: number;
+  location: string;
+  description: string;
+  category_id: string;
+  stock: number;
+  promotion: any;
+  category: ICategory;
+  store_id: string;
+  variants: IVariant[];
+}
+
+export interface ProductVariant {
+  id: number | null;
+  name: string;
+  price: string;
+}
+
+export interface Promotion {
+  id: number;
+  title: string;
+  discount: number;
+  start_date: string;
+  end_date: string;
 }
 
 /* ========= STORE ========= */
@@ -65,6 +80,7 @@ export interface IProductDetailResponse {
 export const initialProductState: IProductDetailResponse = {
   product: {
     id: "",
+    stock: 0,
     created_at: "",
     updated_at: "",
     images: [],
